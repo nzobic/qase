@@ -1,0 +1,19 @@
+{
+  "name": "qase",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "open": "cypress open",
+    "qase": "cypress run --headed --browser chrome --spec cypress/e2e/qase.cy.js --no-exit"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^12.10.0",
+    "faker": "^5.5.3"
+  },
+  "devDependencies": {
+    "@cypress/xpath": "^2.0.3"
+  }
+}
