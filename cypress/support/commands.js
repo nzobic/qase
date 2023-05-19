@@ -4,14 +4,12 @@ const suitePage = require('../support/pages/suitePage').suitePage;
 const testPage = require('../support/pages/testPage').testPage;
 const testPlanPage = require('../support/pages/testPlanPage').testPlanPage;
 
-// -- This is a parent command --
 
 /**
  * @memberof cy
  * @method login
  * @param email Email
  * @param password Password
- * @description Use to Login
  */
 
 Cypress.Commands.add('login', (email, password) => { 
@@ -21,7 +19,7 @@ Cypress.Commands.add('login', (email, password) => {
     cy.get(loginPage.password).type(password)
     cy.get(loginPage.loginBtn).click()
 
- })
+})
 
 
 /**
@@ -32,7 +30,6 @@ Cypress.Commands.add('login', (email, password) => {
  * @param description Project Description
  * @param projectType Access Type
  * @param memberAccess Member Access
- * @description Use to Create Project
  */
 
 Cypress.Commands.add('createProject', (name, code, description, projectType, memberAccess) => { 
@@ -40,7 +37,7 @@ Cypress.Commands.add('createProject', (name, code, description, projectType, mem
     cy.get(projectPage.createProjectBtn).click()
     cy.get(projectPage.projectName).type(name)
     cy.get(projectPage.projectCode).clear().type(code)
-    cy.get(projectPage.description).type(description)
+    cy.get(projectPage.projectDesc).type(description)
     if (projectType !== 'private') {
         cy.get(projectPage.accessType.public).check()
     } else {
@@ -55,7 +52,7 @@ Cypress.Commands.add('createProject', (name, code, description, projectType, mem
     }
     cy.get(projectPage.createBtn).click()
 
- })
+})
 
 
 /**
@@ -65,7 +62,6 @@ Cypress.Commands.add('createProject', (name, code, description, projectType, mem
  * @param parentSuite Test Suite Project Root
  * @param description Test Suite Description
  * @param preconditions Test Suite Precondition
- * @description Use to Create Test Suite
  */
 
 Cypress.Commands.add('createTestSuite', (name, parentSuite, description, preconditions) => { 
@@ -75,10 +71,11 @@ Cypress.Commands.add('createTestSuite', (name, parentSuite, description, precond
     if (parentSuite !== 'Project root') {
         // TODO select an existing suite as parent suite
     }
-    cy.get(suitePage.description).eq(0).type(description)
+    cy.get(suitePage.suiteDesc).eq(0).type(description)
     cy.get(suitePage.precondition).eq(1).type(preconditions)
     cy.get(projectPage.createBtn).click()
- })
+
+})
 
 
 /**
@@ -89,7 +86,6 @@ Cypress.Commands.add('createTestSuite', (name, parentSuite, description, precond
  * @param testSuite Test Case Suite
  * @param severity Test Case Severity
  * @param priority Test Case Priority
- * @description Use to Create Test Case
  */
 
 Cypress.Commands.add('createTestCase', (testName, testStatus, testSuite, severity, priority) => { 
@@ -116,8 +112,7 @@ Cypress.Commands.add('createTestCase', (testName, testStatus, testSuite, severit
     }
 
     cy.get(testPage.SaveBtn).click()
-    
-  
+
 })
 
 
@@ -126,7 +121,6 @@ Cypress.Commands.add('createTestCase', (testName, testStatus, testSuite, severit
  * @method createTestPlan
  * @param planTitle Test Plan Name
  * @param planDescription Test Plan Description
- * @description Use to Create Test Plan
  */
 
 Cypress.Commands.add('createTestPlan', (planTitle, planDescription) => { 
@@ -140,6 +134,5 @@ Cypress.Commands.add('createTestPlan', (planTitle, planDescription) => {
     cy.get(testPlanPage.DoneBtn).click()
     cy.get(testPlanPage.SaveBtn).click()
     
-  
 })
  

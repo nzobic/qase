@@ -1,10 +1,9 @@
 const projectPage = {
 
     createProjectBtn: '#createButton',
-
     projectName: '#project-name',
     projectCode: '#project-code',
-    description: '#description-area',
+    projectDesc: '#description-area',
     accessType: {
         private: '[value="private"]',
         public: '[value="public"]'
@@ -17,7 +16,7 @@ const projectPage = {
     groupAccess: '.Thgbhj.euhZGB.cfvQxI',
     cancelBtn: '.CCVJRT button:first-child',
     createBtn: '.CCVJRT button:last-child',
-    project: '.defect-title[href="/project/$"]'
+    projectLink: '.defect-title[href="/project/$"]'
 
 }
 

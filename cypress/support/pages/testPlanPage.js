@@ -8,6 +8,7 @@ const testPlanPage = {
     testCaseCheckbox: '#suitecase-$-checkbox',
     DoneBtn: '.j4xaa7.u0i1tV.J4xngT',
     SaveBtn: '#save-plan'
+    
 }
 
 module.exports = {
